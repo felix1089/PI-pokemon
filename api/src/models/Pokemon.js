@@ -14,18 +14,18 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('pokemon', {
+  sequelize.define('Pokemon', {
     id : {
-      type: DataTypes.UUID, // un Id que no me pise cuando traiga data de la api
-      allowNull: false, // campo obligatorio
-      primaryKey: true, // id unico
+      type: DataTypes.INTEGER, 
+      allowNull: false, //
+      primaryKey: true, 
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    life:{
+    hp:{
       type: DataTypes.INTEGER,
     },
     attack: {
@@ -43,10 +43,14 @@ module.exports = (sequelize) => {
     weight:{
       type: DataTypes.INTEGER,
     },
+    image:{
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     createInDb:{
       type: DataTypes.BOOLEAN, // esta propiedad me va servir para llamar a db(distincion de db/api)
       defaultValue: true, 
-      allowNull: false,  
+      allowNull: true,  
     }
   });
 };
